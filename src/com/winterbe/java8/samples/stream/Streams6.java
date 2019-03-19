@@ -34,6 +34,7 @@ public class Streams6 {
     }
 
     private static void test2() {
+    	//builder pattern
         IntStream
             .builder()
             .add(1)
@@ -48,7 +49,7 @@ public class Streams6 {
     }
 
     private static void test1() {
-        int[] ints = {1, 3, 5, 7, 11};
+        int[] ints = {1, 3, 5, 7, 11,8989,9};
         Arrays
             .stream(ints)
             .average()

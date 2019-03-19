@@ -20,6 +20,26 @@ public class Streams12 {
         test3(strings);
 //        test4();
     }
+    
+    private static void test3(List<String> strings) {
+        strings
+            .parallelStream()
+            .filter(s -> {
+                System.out.format("filter:  %s [%s]\n", s, Thread.currentThread().getName());
+                return true;
+            })
+            .map(s -> {
+                System.out.format("map:     %s [%s]\n", s, Thread.currentThread().getName());
+                return s.toUpperCase();
+            })
+            .sorted((s1, s2) -> {
+                System.out.format("sort:    %s <> %s [%s]\n", s1, s2, Thread.currentThread().getName());
+                return s1.compareTo(s2);
+            })
+            .forEach(s -> System.out.format("forEach: %s [%s]\n", s, Thread.currentThread().getName()));
+    }
+
+    
 
     private static void test4() {
         List<String> values = new ArrayList<>(100);
@@ -47,24 +67,7 @@ public class Streams12 {
         System.out.println(String.format("parallel sort took: %d ms", millis));
     }
 
-    private static void test3(List<String> strings) {
-        strings
-            .parallelStream()
-            .filter(s -> {
-                System.out.format("filter:  %s [%s]\n", s, Thread.currentThread().getName());
-                return true;
-            })
-            .map(s -> {
-                System.out.format("map:     %s [%s]\n", s, Thread.currentThread().getName());
-                return s.toUpperCase();
-            })
-            .sorted((s1, s2) -> {
-                System.out.format("sort:    %s <> %s [%s]\n", s1, s2, Thread.currentThread().getName());
-                return s1.compareTo(s2);
-            })
-            .forEach(s -> System.out.format("forEach: %s [%s]\n", s, Thread.currentThread().getName()));
-    }
-
+   
     private static void test2(List<String> strings) {
         strings
             .parallelStream()

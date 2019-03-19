@@ -39,7 +39,7 @@ public class Streams3 {
             values.add(uuid.toString());
         }
 
-        // sequential
+        // parallel
 
         long t0 = System.nanoTime();
 
