@@ -13,6 +13,7 @@ public class Lambda1 {
 
     public static void main(String[] args) {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+        List<Integer> ids = Arrays.asList(1,2,3,4,5,6);
 
         Collections.sort(names, new Comparator<String>() {
             @Override
@@ -20,11 +21,24 @@ public class Lambda1 {
                 return b.compareTo(a);
             }
         });
+        
+        Collections.sort(ids,new Comparator<Integer>() {
 
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				
+				return o2.compareTo(o1);
+			}
+		});
+        System.out.println(ids);
+        
+        
+        
         Collections.sort(names, (String a, String b) -> {
             return b.compareTo(a);
         });
 
+        //lambda
         Collections.sort(names, (String a, String b) -> b.compareTo(a));
 
         Collections.sort(names, (a, b) -> b.compareTo(a));
@@ -37,6 +51,8 @@ public class Lambda1 {
 
         List<String> names2 = Arrays.asList("peter", null, "anna", "mike", "xenia");
         names2.sort(Comparator.nullsLast(String::compareTo));
+        Comparator.nullsLast(String::compareTo);
+        
         System.out.println(names2);
 
         List<String> names3 = null;

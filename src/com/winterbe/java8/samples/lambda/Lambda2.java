@@ -17,6 +17,7 @@ public class Lambda2 {
     }
 
     interface PersonFactory<P extends Person> {
+    	//
         P create(String firstName, String lastName);
     }
 
@@ -43,5 +44,6 @@ public class Lambda2 {
 
         PersonFactory<Person> personFactory = Person::new;
         Person person = personFactory.create("Peter", "Parker");
+        
     }
 }
