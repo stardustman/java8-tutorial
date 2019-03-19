@@ -20,11 +20,12 @@ public class LocalTime1 {
         // get the current time
         Clock clock = Clock.systemDefaultZone();
         long t0 = clock.millis();
+        System.out.println(clock);
         System.out.println(t0);
 
         Instant instant = clock.instant();
         Date legacyDate = Date.from(instant);
-
+        System.out.println(legacyDate);
 
         ZoneId zone1 = ZoneId.of("Europe/Berlin");
         ZoneId zone2 = ZoneId.of("Brazil/East");

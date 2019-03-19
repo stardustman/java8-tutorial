@@ -16,9 +16,10 @@ public class Concurrency1 {
         }
 
         int threshold = 1;
-
+        System.out.println("=========>");
         concurrentHashMap.forEachValue(threshold, System.out::println);
-
+        System.out.println("=========>");
+        
         concurrentHashMap.forEach((id, uuid) -> {
             if (id % 10 == 0) {
                 System.out.println(String.format("%s: %s", id, uuid));

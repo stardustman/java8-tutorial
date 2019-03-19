@@ -23,10 +23,11 @@ public class Nashorn2 {
         System.out.println(object.getClass());
     }
 
-    public static void fun3(ScriptObjectMirror mirror) {
+    @SuppressWarnings("restriction")
+	public static void fun3( ScriptObjectMirror mirror) {
         System.out.println(mirror.getClassName() + ": " + Arrays.toString(mirror.getOwnKeys(true)));
     }
-
+    @SuppressWarnings("restriction")
     public static void fun4(ScriptObjectMirror person) {
         System.out.println("Full Name is: " + person.callMember("getFullName"));
     }

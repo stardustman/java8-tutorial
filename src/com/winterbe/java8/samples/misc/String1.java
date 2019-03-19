@@ -22,7 +22,7 @@ public class String1 {
                 .distinct()
                 .mapToObj(c -> String.valueOf((char) c))
                 .sorted()
-                .collect(Collectors.joining());
+                .collect(Collectors.joining("$$$"));
         System.out.println(string);
     }
 
@@ -31,7 +31,7 @@ public class String1 {
                 .splitAsStream("foobar:foo:bar")
                 .filter(s -> s.contains("bar"))
                 .sorted()
-                .collect(Collectors.joining(":"));
+                .collect(Collectors.joining(":<<<<"));
         System.out.println(string);
     }
 
@@ -43,7 +43,7 @@ public class String1 {
     }
 
     private static void testJoin() {
-        String string = String.join(":", "foobar", "foo", "bar");
+        String string = String.join(":>>", "foobar", "foo", "bar");
         System.out.println(string);
     }
 }
